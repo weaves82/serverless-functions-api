@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Serverless Functions
+
+This exercise was to use a serverless function to create a new single api from 2 separate apis. Utilised Netlify Functions to manage the serverless API. Checkout what Ron ~~Swan~~Dogson has to say here https://gallant-roentgen-88f13a.netlify.app/
+
+Demo site was just quickly built with React.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
