@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import axios from 'axios'
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [data, setData] = useState({})
+  const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+      const fetchData = async () => {
+        const response = await axios.get('/.netlify/functions/quote-image-merge')
+        setData(response.data)
+        setLoading(false)
+      }
+      fetchData()
+    },[])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Serverless function fun - Ron <strike>Swan</strike>Dogson</h1>
+      {loading ? <p> Loading... </p> : <><blockquote>{data.quote}</blockquote><img alt="" src = {`${data.image}`}/></>}
     </div>
   );
 }
